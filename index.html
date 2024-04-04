@@ -11,8 +11,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha512-cn16Qw8mzTBKpu08X0fwhTSv02kK/FojjNLz0bwp2xJ4H+yalwzXKFw/5cLzuBZCxGWIA+95X4skzvo8STNtSg==" referrerpolicy="no-referrer">
     <link href="assets/css/style.css" rel="stylesheet">
     <title>Developer Musthofa Kamaluddin | Full-Stack Web/Application Developer</title>
-</head>
-<body>
     <style>
         #loader{
             background:#000 url(assets/img/loader.gif) no-repeat center;
@@ -23,22 +21,35 @@
             z-index:10000
         }
     </style>
-    <div id="loader"></div>
-    <script>
+    <!-- <script>
         window.addEventListener('load',function(){
             let x= document.getElementById('loader');
             x.style.display='none';
         })
     </script>
-    <script src="emailSender.js"></script>
-
-    <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("user_your_user_id");
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "OPvplaDGCM-B7hVcF",
+            });
         })();
-    </script>
-     -->
+
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script> -->
+</head>
+<body>
     <header>
         <a href="#" class="logo">Musthofa <span>Kamaluddin</span>.</a>
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -47,15 +58,15 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
             <div class="bx bx-moon" id="darkmode"></div>
         </ul>
     </header>
     <section class="home" id="home">
         <div class="social">
-            <a href="https://github.com/ludgit"><i class="bx bxl-github"></i></a>
-            <a href="https://instagram.com/lud_dev"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="https://github.com/ludgit" target="_blank" rel="noopener"><i class="bx bxl-github"></i></a>
+            <a href="https://instagram.com/lud_dev" target="_blank" rel="noopener"><i class="bx bxl-instagram"></i></a>
+            <a href="https://youtube.com/@lud_dev" target="_blank" rel="noopener"><i class="bx bxl-youtube"></i></a>
         </div>
         <div class="home-img">
             <img alt="Image of Musthofa Kamaluddin" src="assets/img/main.jpg">
@@ -65,7 +76,7 @@
             <h1>Musthofa Kamaluddin</h1>
             <h2>Full Stack Web/Application Developer</h2>
             <p>I am a Web/Application developer, I have 1 years of experience in this sector. If you need to build a professional website, you can hire me! Please choose any of my services or plans.</p>
-            <a href="https://github.com/ludgit" class="btn">Download CV</a>
+            <a href="https://github.com/ludgit" class="btn" target="_blank" rel="noopener">Download CV</a>
         </div>
     </section>
     <section class="about" id="about">
@@ -84,7 +95,7 @@
                     <div class="info-box"><i class="bx bxs-phone"></i> <span>+62 813-3172-0264</span></div>
                     <div class="info-box"><i class="bx bxs-envelope"></i> <span><a href="mailto:lud.dev@yahoo.com">lud.dev@yahoo.com</a></span></div>
                 </div>
-                <a href="https://github.com/ludgit" class="btn">Download Cv</a>
+                <a href="https://github.com/ludgit" class="btn" target="_blank" rel="noopener">Download Cv</a>
             </div>
         </div>
     </section>
@@ -153,50 +164,34 @@
             </div>
         </div>
     </section>
-    <section class="contact" id="contact">
+    <!-- <section class="contact" id="contact">
         <div class="heading">
             <h2>Contact</h2>
             <span>Connect With Me</span>
         </div>
         <div class="contact-form">
             <form id="contact-form">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="text" id="name" name="user_name" placeholder="Your Name" required>
+                <input type="email" id="email" name="user_email" placeholder="Your Email" required>
                 <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                <input type="submit" value="Send">
+                <input type="submit" target="_blank" rel="noopener" value="Send">
+                <button type="button" id="send-btn" target="_blank" rel="noopener">Send</button>
             </form>
-            
-            <!-- <script>
-                document.getElementById('contact-form').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Menghentikan perilaku bawaan formulir
-            
-                    // Mengambil nilai dari input
-                    var name = document.getElementById('name').value;
-                    var email = document.getElementById('email').value;
-                    var message = document.getElementById('message').value;
-            
-                    // Kirim email menggunakan 'mailto' protokol
-                    window.location.href = 'mailto:lud.dev@yahoo.com?subject=' + encodeURIComponent('Pesan dari ' + name) + '&body=' + encodeURIComponent('Email: ' + email + '\n\n' + 'Pesan: ' + message);
-                    
-                    // Pesan kesuksesan (mengirim email tidak dapat dikonfirmasi secara otomatis)
-                    alert('Email sent successfully!');
-                    
-                    // Reset formulir
-                    document.getElementById('contact-form').reset();
-                });
-            </script>             -->
         </div>
-    </section>
+    </section>     -->
     <div class="footer">
         <h2>Follow Me</h2>
         <div class="footer-social">
             <a href="#"><i class="bx bxl-facebook"></i></a> 
-            <a href="#"><i class="bx bxl-twitter"></i></a> 
+            <a href="#"><i class="bx bxl-linkedin"></i></a> 
             <a href="https://instagram.com/lud_dev"><i class="bx bxl-instagram"></i></a> 
             <a href="https://youtube.com/@lud_dev"><i class="bx bxl-youtube"></i></a>
+            <a href="https://wa.me/6281331720264"><i class="bx bxl-whatsapp   "></i></a> 
+            
         </div>
     </div>
     <div class="copyright">© Musthofa Kamaluddin. All Right Reserved.</div>
     <script src="assets/js/script.js"></script>
+    <script src="waSender"></script>
 </body>
 </html>

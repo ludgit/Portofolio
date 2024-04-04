@@ -540,7 +540,7 @@
      width: 300px;
    }
 
-   .contact-button {
+   .send-btn {
      margin-left: 25%;
    }
  }
@@ -563,7 +563,10 @@
    .information .info-box span {
      font-size: 1rem;
    }
-
+  
+   .information .info-box span a {
+    text-decoration: none;
+   }
    .contact-form form {
      width: 300px;
    }
