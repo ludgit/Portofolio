@@ -473,7 +473,11 @@
      box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
      transition: 0.2s ease;
      text-align: center;
-   }
+     -webkit-transition: 0.2s ease;
+     -moz-transition: 0.2s ease;
+     -ms-transition: 0.2s ease;
+     -o-transition: 0.2s ease;
+}
 
    .navbar.active {
      top: 100%;
@@ -483,7 +487,12 @@
      padding: 1.5rem;
      display: block;
      background: var(--bg-color);
-   }
+     transition: 0.5s ease-in-out;
+     -webkit-transition: 0.5s ease-in-out;
+     -moz-transition: 0.5s ease-in-out;
+     -ms-transition: 0.5s ease-in-out;
+     -o-transition: 0.5s ease-in-out;
+}
 
    #darkmode {
      position: absolute;
